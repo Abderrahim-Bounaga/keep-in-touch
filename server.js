@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const PORT = 5050;
+const cors = require('cors');
 const user = require('./routes/user');
 const bodyParser = require('body-parser')
 
@@ -19,6 +20,8 @@ mongoose.connect('mongodb://localhost:27017/send-mail',{ useNewUrlParser: true, 
 app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }))
 
+
+app.use(cors())
 app.use('/',user);
 
 

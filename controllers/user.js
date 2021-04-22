@@ -3,13 +3,13 @@ const nodemailer = require("nodemailer");
 
 
 exports.Mail = async (req,res)=>{
-    const {Prénom, Nom, Email,Téléphone, Message}= req.body
+    const {firstName, lastName, email,phoneNumber, message}= req.body
     const user = new User({
-        Prénom: Prénom,
-        Nom: Nom,
-        Email: Email,
-        Téléphone: Téléphone,
-        Message: Message,
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      phoneNumber: phoneNumber,
+      message: message,
     });
     try {
         const savedUser = await user.save();
@@ -25,7 +25,7 @@ exports.Mail = async (req,res)=>{
 
 
 exports.Liste = (req,res,next)=> {
-    User.find({})
+    User.find()
       .then((Particip) =>{
         res.statusCode = 200;
         res.json(Particip)})

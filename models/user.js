@@ -1,19 +1,19 @@
 const mongoose = require('mongoose');
 
 const user_Mail =new mongoose.Schema({
-    Prénom:{
+    firstName:{
         type:String,
     },
-    Nom:{
+    lastName:{
         type:String,
     },
-    Email:{
+    email:{
         type:String,
     },
-    Téléphone:{
+    phoneNumber:{
         type:Number,
     },
-    Message:{
+    message:{
         type:String,
     },
     Date:{
