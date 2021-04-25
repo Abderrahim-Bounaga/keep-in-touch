@@ -15,7 +15,7 @@ class Contact extends Component {
             }).catch((error) => { console.log(error) });
         
     };
-    
+     
     render() {
         return (
             <div style={{padding : 20}}>

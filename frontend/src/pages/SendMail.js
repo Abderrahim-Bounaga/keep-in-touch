@@ -6,7 +6,7 @@ import * as yup from 'yup';
 import axios from 'axios';
 function SendMail(props) {
     
-    let { Email } = useParams()
+    let {Email} = useParams()
     function _handleFoormSubmit(values){
         console.log(values);
         axios.post(`http://localhost:5050/send/${Email}`, values).then((response) => {

@@ -71,4 +71,34 @@ exports.Send =async (req,res)=>{
         console.log("Not send")
     }
 }
+
+exports.DateFinde = async(req, res)=>{
+  const {date}= req.body;
+  // let today = new Date()
+
+  let dt = date.split("-");
+  // console.log(dt);
+  console.log(date);
+  let dateEnd = dt[0]+ "-" + dt[1] + "-" + (parseInt(dt[2])+1);
+  // console.log(dateEnd);
+
+  const end = new Date(Date.parse(dateEnd));
+  console.log(end);
+  const debu = new Date(Date.parse(date));
+  console.log(debu);
+  // console.log("the day " + temp.getDay());
+  // console.log(temp.getFullYear())
+  // console.log(temp.getMonth());
+  
+  // console.log(temp);
+  // console.log("date " + date);
+
+  const DateTime= await User.find({Date: { $gte: debu, $lte: end } });
+
+  if(!DateTime){
+    res.send("err")
+  }
+  return res.send("date "+ DateTime)
+
+}
     
